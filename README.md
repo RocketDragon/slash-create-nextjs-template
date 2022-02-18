@@ -1,5 +1,23 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Specific details about this 'template'
+
+This is by no means official nor is it to be considered a 'best practice' for Next.js or `slash-create`. That said, it works well enough to get you on your way.
+
+*Much of this has been derived from the [vercel template](https://github.com/Snazzah/slash-create-vercel) which follows a similar architecture.*
+
+> When you're ready to start the service, register the interactions url as `/api/interactions`. (Include whatever comes before it in the url, if you have any - domain, port, etc.)
+
+For help with [`slash-create`](https://slash-create.js.org) please join [Snazzah's hangout](https://snaz.in/discord), otherwise please visit [TinkerStorm](https://discord.gg/Bb3JQQG) or [open an issue](https://github.com/RocketDragon/slash-create-nextjs-template) - anything to do with this template specifically.
+
+### Important files
+
+- The base server structure is called from [`/api/interactions`](/pages/api/interactions.js), but is calling the endpoint from [`./util/ServerBase.js`](./util/ServerBase.js) so to remain consistent with the library's infrastructure (and how it handles external imports).
+- The commands folder is located **outside** of the pages folder at project root to ensure that it can be imported without the extrenuous need to write out a path to it.
+> Note: This is a bit of a hack, but it's a good way to keep the commands folder out of the pages folder. The same was attempted for TypeScript, but the problem was that __this__ TypeScript compiler configuration was not able to include the file in the build process.
+
+**Everything else remains unchanged.**
+
 ## Getting Started
 
 First, run the development server:
